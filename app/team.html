@@ -134,10 +134,12 @@
 							<img  class ="img-circle" src="{{userimg[member.indexOf(r)].photoURL}}"   width ="32" height="32">
                             <div class="media-right" ng-click="processRequest(r);"><a class="btn btn-default" data-dismiss="modal">Accept</a>
                             </div>
-						</a></div>
-                                                <button type="button" class="btn" ng-click="processRequest(r);">
-						                    <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> {{r.name}}
-					                        </button>
+						</a></div> 
+                                                	<div class="media-body">
+							    <h4>{{r.name}}</h4>
+    
+											
+							</div>
                                             </div>
                                         </div>
                                     </div>
