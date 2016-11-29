@@ -1,0 +1,145 @@
+<html lang="en" ng-app="teamform-exploreEvent-app">
+
+<head>
+  <!-- Bootstrap Core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+  <!-- Theme CSS -->
+  <link href="css/grayscale.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header navbar-left">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                   <i class="fa fa-bars"></i>
+                </button>
+        <a class="navbar-brand page-scroll" href="#page-top">
+          <!--<i class="fa fa-play-circle"></i> <span class="light">Start</span> Bootstrap-->
+
+          <!--profile-->
+          <a href="#contact" data-toggle="modal">
+            <div class="navbar-brand">
+              <img src="profile/brown.png" height=400% data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            </div>
+          </a>
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+        <ul class="nav navbar-nav">
+          <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+          <li class="hidden">
+            <a href="#page-top"></a>
+          </li>
+          <li>
+            <a class="page-scroll" href="tutorial.html">Tutorial</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="index.html">Home</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="explore.html">Explore</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="login.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </nav>
+
+  <section >
+    <!--<div class="search">-->
+    <center>
+      <div class="col-lg-8 col-lg-offset-2">
+        <h1>Event Directory</h1>
+
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="query" placeholder="Search for member" autofocus>
+          <div class="input-group-btn">
+
+          </div>
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-model="direction" name="direction" checked>
+                            <input type="radio" ng-model="direction" name="direction"> Asc
+                            <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
+                        </button>
+          </div>
+
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default">
+                             <input type="radio" ng-model="direction" name="direction" value="reverse"> Des
+                            <span class="glyphicon glyphicon-sort-by-alphabet-alt" aria-hidden="true"></span>
+                        </button>
+          </div>
+
+
+        </div>
+
+
+
+        <!--<input type="text" class="form-control" aria-label="Hello World" placeholder="Search Hello World">-->
+        <h3 style="padding:10px">Search by:
+          <select ng-model="eventOrder" style="color:black">
+        <option value="$id" style="color:black">Name</option>
+        <option value="requiredSkill" style="color:black">RequiredSkill</option>
+      </select></h3>
+
+
+        <!-- <label class="formgroup">
+      <input type="radio" ng-model="direction" name="direction" checked>
+      Ascending
+     </label>
+            <label class="formgroup">
+      <input type="radio" ng-model="direction" name="direction" value="reverse">
+      Descending
+    </label>-->
+      </div>
+
+    </center>
+
+
+  </section>
+
+
+  <section id="events" class="container content-section text-center">
+    <div class="row">
+      <div class="col-md-4" ng-repeat="item in event | filter: query | orderBy: eventOrder:direction">
+
+
+        <!--<a href="#/details/{{event.event.indexOf(item)}}"> -->
+        <!-- <img ng-src="images/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}"> -->
+        <div class="info">
+          <!--<h2>{{item}}</h2>-->
+
+
+          <h2>{{item.$id}}</h2>
+          <a href=""><img ng-src="{{item.admin.param.imgURL}}" height="279"></a>
+          <h3>{{item.admin.param.description}}</h3>
+        </div>
+
+      </div>
+
+
+
+
+
+  </section>
+</body>
+
+</html>
